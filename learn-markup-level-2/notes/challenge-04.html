@@ -1,0 +1,281 @@
+
+<!-- 
+
+  Tasks: 
+
+  Task 1
+
+  **Associate labels with inputs.** If an input is a child of 
+  a label they are associated/linked. If not you can 
+  associate/link them using the for and id attributes. 
+
+  For example: 
+
+  <label>
+    Some Label
+    <input>
+  </label>
+
+  or
+  
+  <label for="some-id">Some Label</label>
+  <input id="some-id">
+
+  Some of the labels below have a nested input and 
+  others do not. Your job is to find the labels that do not 
+  have nested inputs and use the id and for attributes to 
+  associate/link them. 
+
+  Task 2: 
+
+  **Set the attribute for each input.** The inputs in the 
+  form need to take various types of data. Some take text
+  some take numbers, some take files, colors, or dates. Your
+  job is to configure each input to handle the correct type 
+  of input by setting the type attribute. 
+
+  Inputs also have a placeholder attribute that displays 
+  a placeholder message. You should configure this to a 
+  reasonable value. 
+
+  The browser will autocomplete on some inputs if we allow
+  it. Some inputs want this and otherd do not. 
+
+  Inputs should have a name attribute this sets the key for 
+  the value submitted from the form. Give each input a name
+  that makes sense. 
+
+  Refer to this list of input attributes for more info: 
+
+  https://www.w3schools.com/html/html_form_attributes.asp
+ 
+  Take a look at each of the inputs and set the attributes 
+  following the guide below. 
+
+  - Enter their User name (input type text, should not autocomplete)
+  - Email (input email)
+  - Number of pets (input number)
+  - Birthday (input date)
+  - Choose an prefix (select)
+  - Set a role (input type radio)
+  - Show public profile (input checkbox, should be checked by default)
+  - Enter a bio (textarea)
+  - Upload a picture (input file, should only accept images)
+  - Self Destruct (input checkbox, should be DISABLED by default since we haven't implemented this feature yet)
+  
+ -->
+ <!doctype html>
+ <html>
+   
+<body>
+<form action="/your/api" method="">
+ 
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id, placeholder, autocomplete, required -->
+    <label>Name</label>
+    <input>
+  </p>
+  
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id, placeholder, autocomplete, required -->
+    <label>Email</label>
+    <input>
+  </p>
+  
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id, placeholder -->
+    <label>Pet Count</label>
+    <input>
+  </p>
+  
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id, placeholder -->
+    <label>Birthday</label>
+    <input>
+  </p>
+  
+  <p>
+    <!-- Set the name for the select make none the current selection -->
+    <label>Prefix</label>
+    <select>
+      <option>Mr</option>
+      <option>Mrs</option>
+      <option>Ms</option>
+      <option>Sir</option>
+      <option>Madam</option>
+      <option>Dr</option>
+      <option>None</option>
+    </select>
+  </p>
+  
+  <!-- Associate labels with form elements with for and id -->
+  <ul>
+    <li>
+      <!-- Associate the label and input -->
+      <!-- set: type, name, id, value -->
+      <label>
+        <input>
+        Admin</label>
+    </li>
+    <li>
+      <!-- Associate the label and input -->
+      <!-- set: type, name, id, value -->
+      <label>
+        <input>
+        Editor</label>
+    </li>
+    <li>
+      <!-- Associate the label and input -->
+      <!-- set: type, name, id, value -->
+      <label>
+        <input>
+        Contributor</label>
+    </li>
+  </ul>
+  
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id, value -->
+    <label>
+      <input>
+      Public Bio</label>
+  </p>
+  
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id, value -->
+    <label>
+      <input>
+      Color</label>
+  </p>
+  
+  <p>
+    <!-- Set the name for the textarea -->
+    <label>Message</label>
+    <textarea></textarea>
+  </p>
+  
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id -->
+    <label>Upload Image</label>
+    <input>
+  </p>
+  
+  <p>
+    <!-- Associate the label and input -->
+    <!-- set: type, name, id, value, disabled -->
+    <label>
+      <input>
+      Self Destruct</label>
+  </p>
+  
+  <p>
+    <!-- Type reset -->
+    <button>cancel</button>
+    <!-- Type submit -->
+    <button>Submit</button>
+  </p>
+  
+</form>
+
+
+<!-- Styles for this form -->
+<style>
+
+  body, html {
+    height: 100%;
+  }
+
+  body {
+    font-family: Helvetica;
+    font-weight: 300;
+    color: #444;
+    background-color: #eee;
+  }
+
+  input, select, textarea {
+    margin: 0em 0;
+  }
+
+  form {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    padding: 2em;
+    flex-direction: column;
+  }
+
+  input {
+    padding: 0.5em;
+    border: 3px solid #bbb;
+    border-radius: 0.5em;
+    font-size: 1em;
+    display: inline-block;
+  }
+
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  form > p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;;
+  }
+
+  select {
+    font-size: 1em;
+  }
+
+  input[type=color], input[type=radio], input[type=checkbox] {
+    margin: 1em;
+  }
+
+  textarea {
+    height: 4em;
+    font-size: 1em;
+    padding: 0.5em;
+    border: 3px solid #666;
+    border-radius: 0.5em;
+  }
+
+  button {
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    background-color:cornflowerblue;
+    color: white;
+    font-weight: bold;
+    margin: 1em;
+    border-radius: 0.5em;
+    flex: 0;
+    align-self: flex-end;
+  }
+
+  button[type="reset"] {
+    background-color: transparent;
+    color: #666;
+  }
+
+  p:last-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+</style>
+
+
+</body>
+</html>

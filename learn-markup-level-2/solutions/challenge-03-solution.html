@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SWAPI Form</title>
+  </head>
+  <body>
+
+    <form id="form">
+      <p>
+        <label>
+          Search
+          <input id="giphy-search">
+        </label>
+      </p>
+
+      <p>
+        <label>
+            <input type="radio" name="size" value="fixed_height">
+            Fixed Height
+        </label><br>
+        <label>
+            <input type="radio" name="size" value="fixed_height_small">
+            Fixed Height Small
+        </label><br>
+        <label>
+            <input type="radio" name="size" value="fixed_height_small_still">
+            Fixed Height Small Still
+        </label>
+      </p>
+
+      <p>
+        <!-- Checkbox id='cats-only'-->
+        <label>
+            <input id="cats-only" type="checkbox" name="cats-only" value="cats-only">
+            Cats Only!
+        </label>
+      </p>
+
+      <p>
+        <!-- Checkbox id='show-title'-->
+        <label>
+            <input id="show-title" type="checkbox" name="show-title" value="show-title">
+            Show Title
+        </label>
+      </p>
+
+      <p>
+        <!-- range id="image-count"-->
+        <label>
+            <input id="image-count" type="range" name="how-many" value="1" min="1" max="6">
+            How Many
+        </label>
+      </p>
+      
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+
+    <div id="results">
+      <!-- Giphy Data -->
+    </div>
+
+    <script>
+      // No need to edit below this point
+      const form = document.getElementById('form')
+      const results = document.getElementById('results')
+      const giphySearch = document.getElementById('giphy-search')
+      
+      form.onsubmit = (e) => {
+        e.preventDefault()
+        const search = giphySearch.value
+        fetchData(search)
+      }
+
+      function fetchData(q = 'cats') {
+        let catsOnly = false
+
+        console.log(document.getElementById('cats-only'))
+
+        if (document.getElementById('cats-only') !== null) {
+          catsOnly = document.getElementById('cats-only').checked 
+        }
+
+        const search = catsOnly ? 'cats '+q : q
+        const api = '3sjrF3zZatafCQZ4pRCCuf5zoOfsctBm'
+        const path = `https://api.giphy.com/v1/gifs/search?api_key=${api}&q=${search}`
+        fetch(path)
+        .then(res => res.json())
+        .then(json => handleData(json))
+        .catch(err => handleErr(err))
+      }
+
+      function handleData(json) {
+        console.log(json)
+        let showTitle = false
+        if (document.getElementById('show-title') !== null) {
+          showTitle = document.getElementById('show-title').checked
+        }
+        
+        let size = 'fixed_height'
+        try {
+          size = Array.from(document.getElementsByName('size')).filter(item => item.checked)[0].value
+        } catch {
+          // 
+        }
+
+        let count = 3
+        try {
+          count = document.getElementById('image-count').value
+        } catch {
+          // 
+        }
+
+        let str = ''
+        for (let i = 0; i < count; i += 1) {
+          const src = json.data[i].images[size].url
+          let title = ''
+          if (showTitle) {
+            title = json.data[i].title
+          }
+          str += `
+          <div>
+            <img src="${src}">
+            <p>${title}</p>
+          </div>`
+        }
+        
+        results.innerHTML = str
+      }
+
+      function handleErr(err) {
+        console.log(err.message)
+      }
+    </script>
+
+    <style>
+      #results {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    </style>
+  </body>
+</html>

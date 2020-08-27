@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SWAPI Form</title>
+  </head>
+  <body>
+
+    <form id="form">
+      <p>
+        <label>
+          Search
+          <!-- Create an input with type with value "text" -->
+          
+        </label>
+      </p>
+
+      <p>
+        <!-- Make three input tags -->
+        <!-- These will be radio buttons add a type attribute with value "radio" -->
+        <!-- To work as group all radio buttons hsould have the same name -->
+        <!-- Use the names and values below for each input -->
+        <!-- name="size" value="fixed_height" -->
+        <!-- name="size" value="fixed_height_small" -->
+        <!-- name="size" value="fixed_height_small_still" -->
+        <!-- Wrap each radio button in a label and include the label text -->
+        <!-- Here is the first input you make the others -->
+        <label>
+          <input type="radio" name="size" value="fixed_height">
+          Fixed Height
+        </label>
+      </p>
+
+      <p>
+        <!-- Create an input inside a label. -->
+        <!-- This will be a checkbox. Use type = cheackbox -->
+        <!-- Checkbox id='cats-only'-->
+      </p>
+
+      <p>
+        <!-- Make an other check box -->
+        <!-- Use id='show-title'-->
+      </p>
+
+      <p>
+        <!-- Make a range slider. This is inptu with type = range -->
+        <!-- range id="image-count"-->
+      </p>
+      
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+
+    <div id="results">
+      <!-- Giphy Data -->
+    </div>
+
+    <script>
+      // No need to edit below this point
+      const form = document.getElementById('form')
+      const results = document.getElementById('results')
+      const giphySearch = document.getElementById('giphy-search')
+      
+      form.onsubmit = (e) => {
+        e.preventDefault()
+        const search = giphySearch.value
+        fetchData(search)
+      }
+
+      function fetchData(q = 'cats') {
+        let catsOnly = false
+
+        console.log(document.getElementById('cats-only'))
+
+        if (document.getElementById('cats-only') !== null) {
+          catsOnly = document.getElementById('cats-only').checked 
+        }
+
+        const search = catsOnly ? 'cats '+q : q
+        const api = '3sjrF3zZatafCQZ4pRCCuf5zoOfsctBm'
+        const path = `https://api.giphy.com/v1/gifs/search?api_key=${api}&q=${search}`
+        fetch(path)
+        .then(res => res.json())
+        .then(json => handleData(json))
+        .catch(err => handleErr(err))
+      }
+
+      function handleData(json) {
+        console.log(json)
+        let showTitle = false
+        if (document.getElementById('show-title') !== null) {
+          showTitle = document.getElementById('show-title').checked
+        }
+        
+        let size = 'fixed_height'
+        try {
+          size = Array.from(document.getElementsByName('size')).filter(item => item.checked)[0].value
+        } catch {
+          // 
+        }
+
+        let count = 3
+        try {
+          count = document.getElementById('image-count').value
+        } catch {
+          // 
+        }
+
+        let str = ''
+        for (let i = 0; i < count; i += 1) {
+          const src = json.data[i].images[size].url
+          let title = ''
+          if (showTitle) {
+            title = json.data[i].title
+          }
+          str += `
+          <div>
+            <img src="${src}">
+            <p>${title}</p>
+          </div>`
+        }
+        
+        results.innerHTML = str
+      }
+
+      function handleErr(err) {
+        console.log(err.message)
+      }
+    </script>
+
+    <style>
+        #results {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    </style>
+  </body>
+</html>

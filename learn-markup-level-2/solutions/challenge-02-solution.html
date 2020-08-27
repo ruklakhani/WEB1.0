@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SWAPI Form</title>
+  </head>
+  <body>
+
+    <form id="form">
+      <p>
+        <label>
+          Enter Number
+          <input id="swapi-id" type="number">
+        </label>
+      </p>
+
+      <p>
+        <select id="swapi-category">
+          <option value="people">people</option>
+          <option>planets</option>
+          <option>starships</option>
+        </select>
+      </p>
+      
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+
+    <!-- No need to edit beyond this point -->
+    <div id="results">
+      <!-- Star Wars Data -->
+    </div>
+
+    <script>
+
+      // No need to edit below this point
+      // Get reference to DOM elements 
+      const form = document.getElementById('form')
+      const results = document.getElementById('results')
+      const swapiId = document.getElementById('swapi-id')
+      const swapiCategory = document.getElementById('swapi-category')
+
+      // Handle form submit
+      form.onsubmit = (e) => {
+        e.preventDefault()
+        const i = swapiId.value
+        const cat = swapiCategory.value
+        fetchData(cat, i)
+      }
+
+      // Fetch data from Star Wars API
+      function fetchData(category = 'people', value = 1) {
+        category = category ? category : 'people'
+        value = value ? value : 1
+        const path = `https://swapi.dev/api/${category}/${value}`
+        console.log(path)
+        fetch(path)
+        .then(res => res.json())
+        .then(json => handleData(json))
+        .catch(err => handleErr(err))
+      }
+
+      // Handle Data returned from Stars Wars API
+      function handleData(json) {
+        console.log(json)
+        // Future lesson takes this object apart to generate 
+        let text = ''
+
+        const keys = Object.keys(json)
+        const str = keys.reduce((str, key) => {
+          if (typeof json[key] === 'string') {
+            str += `<li>${key}: ${json[key]}</li>`
+          }
+
+          return str
+        }, '')
+
+        results.innerHTML = `<ul>${str}</ul>`
+      }
+
+      function handleErr(err) {
+        console.log(err.message)
+      }
+    </script>
+  </body>
+</html>

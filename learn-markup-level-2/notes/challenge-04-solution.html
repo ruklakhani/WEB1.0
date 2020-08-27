@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+   
+<body>
+<form action="/your/api" method="post">
+ 
+  <p>
+    <!-- Associate the label and input -->
+    <label for="name">Name</label>
+    <input 
+      id="name" 
+      name="name" 
+      type="text"
+      placeholder="enter yoiur name" 
+      pattern="/^$|\s+/">
+  </p>
+  
+  <p>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" placeholder="enter email">
+  </p>
+  
+  <p>
+    <label for="pets">Pet Count</label>
+    <input id="pets" name="pets" type="number" placeholder="number of pets">
+  </p>
+  
+  <p>
+    <label for="birthday">Birthday</label>
+    <input id="birthday" name="birthday" type="datetime-local" placeholder="birth day">
+  </p>
+  
+  <p>
+    <label>Prefix</label>
+    <select name="prefix">
+      <option>Mr</option>
+      <option>Mrs</option>
+      <option>Ms</option>
+      <option>Sir</option>
+      <option>Madam</option>
+      <option>Dr</option>
+      <option>None</option>
+    </select>
+  </p>
+  
+  
+  <!-- Associate labels with form elements with for and id -->
+  <ul>
+    <li>
+      <label for="radio-admin">
+        <input id="radio-admin" type="radio" name="role" value="Admin"/>
+        Admin</label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="role" value="Editor" />
+        Editor</label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="role" value="Contributor" />
+        Contributor</label>
+    </li>
+  </ul>
+  
+  <p>
+    <label>
+      <input type="checkbox" name="public">
+      Public Bio</label>
+  </p>
+  
+  <p>
+    <label>
+      <input name="color" type="color">
+      Color</label>
+  </p>
+  
+  <p>
+    <label id="message">Message</label>
+    <textarea id="message" name="bio"></textarea>
+  </p>
+  
+  <p>
+    <label>Upload Image</label>
+    <input name="image" type="file">
+  </p>
+  
+  <p>
+    <label>
+      <input name="self-destruct" type="checkbox">
+      Self Destruct</label>
+  </p>
+  
+  
+  <p>
+    <button type="reset">cancel</button>
+    <button type="submit">Submit</button>
+  </p>
+  
+</form>
+
+
+<!-- Styles for this form -->
+<style>
+
+  body, html {
+    height: 100%;
+  }
+
+  body {
+    font-family: Helvetica;
+    font-weight: 300;
+    color: #444;
+    background-color: #eee;
+  }
+
+  input, select, textarea {
+    margin: 0em 0;
+  }
+
+  form {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    padding: 2em;
+    flex-direction: column;
+  }
+
+  input {
+    padding: 0.5em;
+    border: 3px solid #bbb;
+    border-radius: 0.5em;
+    font-size: 1em;
+    display: inline-block;
+  }
+
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  form > p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;;
+  }
+
+  select {
+    font-size: 1em;
+  }
+
+  input[type=color], input[type=radio], input[type=checkbox] {
+    margin: 1em;
+  }
+
+  textarea {
+    height: 4em;
+    font-size: 1em;
+    padding: 0.5em;
+    border: 3px solid #666;
+    border-radius: 0.5em;
+  }
+
+  button {
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    background-color:cornflowerblue;
+    color: white;
+    font-weight: bold;
+    margin: 1em;
+    border-radius: 0.5em;
+    flex: 0;
+    align-self: flex-end;
+  }
+
+  button[type="reset"] {
+    background-color: transparent;
+    color: #666;
+  }
+
+  p:last-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+</style>
+
+
+</body>
+</html>
