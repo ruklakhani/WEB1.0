@@ -1,0 +1,110 @@
+<!-- 
+  TODO: Use the W3Schools documentation site to fill in the missing
+  form elements below.
+  https://www.w3schools.com/html/html_forms.asp
+  -->
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>My First Form</title>
+    </head>
+    <body>
+  
+      <header>
+        <h1>My First Form</h1>
+      </header>
+  
+      <main>
+        <form>
+          <fieldset>
+            <legend>Please enter your information:</legend>
+  
+            <p>
+              <label>
+                What is your name? <br>
+                <input type="text" name="firstname">
+              </label>
+            </p>
+  
+            <p>
+              <label>
+                What is your email address? <br>
+                <!-- TODO: Add an input tag with type 'email' and name 'email'. -->
+                <input type="email" id="email" name="email">
+              </label>
+            </p>
+  
+            <p>
+              <label>
+                How many siblings do you have? <br>
+                
+                <!-- TODO: Add an input tag with type 'number', name 'siblings', min of 0, and max of 10. -->
+                <input type="number" id="sibilings" name="siblings" min="1" max="10">
+            </label>
+            </p>
+  
+            <p>
+              <label>
+                When were you born? <br>
+                
+                <!-- TODO: Add an input tag with type 'date' and name 'birthdate'. -->
+                <input type="date" id="birthdate" name="birthdate">
+            </label>
+            </p>
+  
+            <p>
+              <label>
+                What is your favorite beverage? <br>
+                
+                <!-- TODO: Add a select tag with 2 options, for 'coffee' and 'tea'. -->
+                    <select name="beverage" id="beverage">
+                        <option value="coffee">Coffee</option>
+                        <option value="tea">Tea</option>
+                    </select>
+              </label>
+            </p>
+  
+            <p>
+              <label>
+                What is your favorite color? <br>
+                
+                <!-- TODO: Add an input tag with type 'color' and name 'fave-color'. -->
+                <input type="color" id="fave-color" name="fave-color">
+              </label>
+            </p>
+  
+            <p>
+              Which is your favorite animal? Select only one. <br>
+                
+              <!-- TODO: Add 2 radio buttons with name 'fave-animal' and values of 'dogs' and 'cats'. Make sure they each have a corresponding label. -->
+              <input type="radio" id="cats" name="fave-animal" value="cats">
+              <label for="cats">Cats</label><br>
+              <input type="radio" id="dogs" name="fave-animal" value="dogs">
+              <label for="dogs">Dogs</label><br>
+            </p>
+  
+            <p>
+              Which hobbies do you enjoy? Select all that apply. <br>
+  
+              <!-- TODO: Add 3 inputs of type 'checkbox' with name 'hobby' and values of 'hiking', 'music', and 'video-games'. Make sure they each have a corresponding label. -->
+            <input type="checkbox" id="hiking" name="hobby" value="hiking">
+            <label for="hiking"> Hiking</label><br>
+            <input type="checkbox" id="music" name="hobby" value="music">
+            <label for="music"> Music</label><br>
+            <input type="checkbox" id="video-games" name="hobby" value="video-games">
+            <label for="video-games"> Video Games</label><br>
+            </p>
+  
+            <p>
+              <input type="submit" value="Submit My Answers!">
+            </p>
+          </fieldset>
+        </form>
+      </main>
+  
+  
+      <script src="script.js"></script>
+    </body>
+  </html>
