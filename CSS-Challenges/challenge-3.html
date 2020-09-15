@@ -3,18 +3,22 @@
 <head>
   <title>Challenge 3</title>
   <style>
+    body {
+      background-color: #d4ffdf;
+      
+    }
     /* Style the blockquote */
     blockquote {
       /* make the font size large size : 2em */
-      
+      font-size: 2em;
       /* Use a serif font family : Georgia */
-      
+      font-family: Georgia, 'Times New Roman', Times, serif;
       /* Needs some line space use 1.5 */
-      
+      line-height: 1.5;
       /* Set the color #777 medium gray */
-      
+      color: green;
       /* Use text-align: right */
-      
+      text-align: right;
     }
 
     /* Style the first letter */
@@ -22,20 +26,35 @@
     letter of the blockaquote */
     blockquote::first-letter {
       /* Set the color #000 */
-      
+      color: #000;
     }
 
+  .rainbow {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    }
     /* Style the author */
     /* Look at this selector. The styles are only applied to footer 
     tags that are inside a blockquote */
     blockquote footer {
       /* Make the font smaller size 0.5em */
-      
+      font-size: 1em;
       /* Make the font bold */
-      
+      font-weight:bold;
       /* Change the color #666 */
-      
+      color: green;
+      text-align: right;
     }
+
+    footer{
+      color: #777;
+      text-align: center;
+    }
+
 
     /* Notice the styles above don't apply to the footer at the 
     the bottom of the page because it is not inside a blockquote. */
@@ -59,7 +78,7 @@
     to be a captive of the environment in which you first 
     find yourself.&rdquo;
     <footer>
-      <p>&mdash; Mark Caine</p>
+      <span class="rainbow">&mdash; Mark Caine</span>
     </footer>
   </blockquote>
   <footer>
