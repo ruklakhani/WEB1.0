@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>repl.it</title>
+  </head>
+  <body>
+
+    <!-- 
+      CHALLENGE 1: Make the "Change Color" button work by modifying the code in script.js! 
+    -->
+
+    <!-- 
+      STRETCH CHALLENGE: Add some JavaScript so that the h1 is updated any time the user types something (not just when the button is pressed)
+      HINT: Use an event listener! 
+    -->
+
+    <h1>Your Favorite Color</h1>
+
+    <p>
+      <label>
+        What is your favorite font?
+        <select name="font" id="font">
+          <option value="serif">Serif</option>
+          <option value="sans-serif">Sans-Serif</option>
+          <option value="monospace">Monospace</option>
+          <option value="cursive">Cursive</option>
+          <option value="fantasy">Fantasy</option>
+        </select>
+      </label>
+    </p>
+
+    <button onclick="replace_font()">Click to Change the Font!</button>
+
+    <p>
+      <label>
+        What is your favorite color?
+        <input type="text" name="color" id="color">
+      </label>
+    </p>
+    
+    <button onclick="replace_color()">Click to Change the Color!</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

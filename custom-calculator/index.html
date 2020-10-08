@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' href='./styles.css'>
+</head>
+<body>
+    <h1 class="text-center mb-4">Circle Area Calculator</h1>
+
+    <div id="card"class="card w-50 mx-auto">
+        <h4 class="text-center">Enter your radius:</h4>
+        <input type="text" id="radius" name="radius" class="form-control w-25 mx-auto">
+
+        <div class="mx-auto mt-3">
+                π * <span id="r">r</span>² = <span id="result">?</span>
+        </div>
+
+        <button id="submit" class="btn btn-success mt-4" onclick="getArea()">Submit</button>
+        
+        <script>
+            function getArea(){
+                radius = document.getElementById("radius").value;
+                area = Math.PI * Math.pow(radius, 2);
+                document.getElementById("r").textContent = radius;
+                document.getElementById("result").textContent = area.toFixed(2);
+            }
+        </script>
+    </div>
+</body>
