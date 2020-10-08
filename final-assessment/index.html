@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Final Assessment</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="grid">
+            <div class="section">
+                <h2>Ruk Lakhani</h2>
+                <p>FEW Assessment</p>
+            </div>
+            <div class="section">
+                <label for="width">Width</label>
+                <input id="width" type="number" onchange="updateBox()" onkeyup="updateBox()">
+                <label for="height">Height</label>
+                <input id="height" type="number" onchange="updateBox()" onkeyup="updateBox()">
+                <label for="color">Color</label>
+                <input id="color" type="color" onchange="updateBox()">
+            </div>
+            <div class="section">
+                <h2>Width</h2>
+                <span id="w"></span>
+                <h2>Height</h2>
+                <span id="h"></span>
+                <h2>Color</h2>
+                <span id="c"></span>
+            </div>
+            <div class="section">
+                <h2>Color</h2>
+                <div id="colorbox">
+
+                </div>
+            </div>
+        </div>
+        <script>
+            function updateBox(){
+                box = document.getElementById("colorbox");
+                width = document.getElementById("width").value;
+                height = document.getElementById("height").value;
+                color = document.getElementById("color").value;
+
+                box.style.width = width + "px";
+                box.style.height = height + "px";
+                box.style.backgroundColor = color; 
+
+                document.getElementById("w").textContent = width;
+                document.getElementById("h").textContent = height;
+                document.getElementById("c").textContent = color;
+            }
+        </script>
+    </body>
+</html>
