@@ -1,8 +1,51 @@
 body {
+    font-family: 'Work Sans', sans-serif;
     background-image: url("trippy.gif");
     background-color: blue;
     background-size: cover;
     }
+nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+    padding: 1em;
+    width: 80%;
+    border-radius: 10px;
+    margin: auto;
+}
+.nav-item {
+    margin-right: 1em;
+}
+img {
+    height: 40vh;
+    border-radius: 10px;
+}
+figure, #about-me {
+    width: 40%;
+    margin: 0px !important;
+}
+#wrapper {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 1em;
+    margin: auto;
+    margin-top: 2vh;
+    width: 80%;
+    border-radius: 10px;
+}
+footer {
+    width: 80%;
+    margin: auto;
+    margin-top: 2vh;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 
-
-    
+}
+.footer-item {
+    margin-right: 1em;
+    margin-left: 1em;
+}
