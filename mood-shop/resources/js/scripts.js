@@ -41,7 +41,8 @@ for (let i=0; i<data.length; ++i) {
 }
 
 const cart = []
-
+// --------------------------------------------------
+// add item
 function addItem(name, price){
     for (let i = 0; i < cart.length; i += 1){
         if (cart[i].name === name){
@@ -52,7 +53,7 @@ function addItem(name, price){
     const item = { name: name, price: price, qty: 1 }
     cart.push(item)
 }
-
+// ---------------------------------------------------
 // show items
 function showItems() {
     const qty = getQty()
@@ -65,6 +66,7 @@ function showItems() {
     console.log(`Total in cart: $${total.toFixed(2)}`)
 }
 
+// ---------------------------------------------------
 // get qty
 function getQty(){
     let qty = 0
@@ -73,7 +75,9 @@ function getQty(){
     } 
     return qty
 }
- // get total
+
+// ---------------------------------------------------
+// get total
 function getTotal(){
     let total = 0 
     for (let i = 0; i < cart.length; i += 1){
@@ -82,6 +86,23 @@ function getTotal(){
     return total.toFixed(2)
 }
 
+// ---------------------------------------------------
+// remove item 
+function removeItem(name, qty = 0){
+    for (let i=0; i < cart.length; i += 1){
+        if (cart[i].name === name){
+            if (qty > 0){
+                cart[i].qty -= 1
+            }
+            if (cart[i].qty < 1 || qty === 0) {
+                cart.splice(i, 1)
+            }
+        return
+        }
+    }
+}
+
+// ---------------------------------------------------
 addItem('Happy', 5.00)
 
 showItems()
